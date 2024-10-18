@@ -1,0 +1,44 @@
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th (click)="sortData('id')">Id</th>
+                <th (click)="sortData('name')">Name</th>
+                <th>UserName</th>
+                <th>Company Name</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>Website</th>
+                <th>Profile Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (user of employees | paginate: { itemsPerPage: 5, currentPage: page } ; track user ) {
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.company.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+                <td><u>{{ user.website }}</u></td>
+                <td>
+                    <fa-icon [icon]="faUser"></fa-icon>
+
+                </td>
+                <td>
+                    <!-- <i class="fas fa-edit" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#userModal"
+                        (click)="viewUserDetails(user)"></i> -->
+                    <fa-icon [icon]="faEye" class="mx-3" [routerLink]="['/userdetails', user.id]"
+                        style="cursor:pointer;"></fa-icon>
+                    <i class="bi bi-trash" (click)="deleteUser(user)" style="cursor:pointer;"></i>
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="page = $event" class="pagination justify-content-end"></pagination-controls>
+    
+</div>

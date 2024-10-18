@@ -1,0 +1,7 @@
+.center-button {
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically (if the container has a height) */
+    height: 100vh;            /* Full height of the viewport (optional) */
+  }
+  

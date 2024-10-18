@@ -1,0 +1,28 @@
+<p class="text-center">employee-table works! </p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Gender</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (employee of employees  ; track employee) {
+        <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name}}</td>
+            <td>{{ employee.position }}</td>
+            <td>{{ employee.department }}</td>
+            <td>{{employee.gender}}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteEmp(employee.id)">Delete</button>
+                <button class="btn btn-info btn-sm" (click)="editEmp(employee)">Edit</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

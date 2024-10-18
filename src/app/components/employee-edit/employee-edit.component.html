@@ -1,0 +1,33 @@
+  <div class="border p-4">
+    <p>Employee-edit works!</p>
+    <form (ngSubmit) ="onSave()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="selectedEmployee.name" name="name" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <input type="text" class="form-control" id="position" [(ngModel)]="selectedEmployee.position" name="position"
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="department" class="form-label">Department</label>
+        <input type="text" class="form-control" id="department" [(ngModel)]="selectedEmployee.department"
+          name="department" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <input type="text" class="form-control" id="gender" [(ngModel)]="selectedEmployee.gender" name="gender"
+          required>
+      </div>
+
+      <div class="row">
+        <div class="col-auto mb-3">
+          <button type="submit" class="btn btn-primary" (click)="onSave()">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>

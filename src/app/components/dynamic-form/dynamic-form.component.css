@@ -1,0 +1,12 @@
+.employee-control {
+    margin-right: 15px; /* Space between controls */
+}
+
+.form-group {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px; /* Space below each form group */
+}
+.employee-control {
+    margin-bottom: 10px; /* Add space below each control */
+}

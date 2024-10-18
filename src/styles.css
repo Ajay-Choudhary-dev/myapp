@@ -1,0 +1,18 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+    --bgColor: white;
+    --textColor: black;
+  }
+  
+  body.dark-mode {
+    --bgColor: black;
+    --textColor: white;
+  }
+  
+  body {
+    background-color: var(--bgColor);
+    color: var(--textColor);
+  }
