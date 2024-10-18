@@ -4,37 +4,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MathService {
+  constructor() { }
 
-  constructor() { }add(a: number, b: number): number {
+  add(a: number, b: number) {
     return a + b;
   }
-
-  subtract(a: number, b: number): number {
+  sub(a: number, b: number) {
     return a - b;
   }
-
-  multiply(a: number, b: number): number {
-    return a * b;
+  mul(a: number, b: number) {
+    return a - b;
   }
-
-  divide(a: number, b: number): number {
-    if (b === 0) {
-      throw new Error('Division by zero is not allowed');
-    }
-    return a / b;
-  }
-
-  CalculateFactorial(num: number): number {
-    if (num < 0) {
-      throw new Error('Factorial is not defined for negative numbers');
-    } else if (num === 0 || num === 1) {
+  factorial(n: number) {
+    let ans = 1;
+    if (n == 0) {
       return 1;
-    } else {
-      let result = 1;
-      for (let i = 2; i <= num; i++) {
-        result *= i;
-      }
-      return result;
     }
+    for (let i = 2; i <= n; i++) {
+      ans = ans * i;
+    }
+    return ans;
   }
 }

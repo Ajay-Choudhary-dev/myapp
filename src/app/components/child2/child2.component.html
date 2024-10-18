@@ -1,9 +1,17 @@
 <p>child2 works!</p>
 
-<div>a value from parent is {{a}}</div>
+<div>a value from parent is {{aChild2}}</div>
 <div>My sibling's data name is- {{child1.name}}</div>
-<!-- <select>
+<select>
     @for(car of cars;track car){
-    <option>{{car}}</option>
+        <option>{{car}}</option>
     }
-</select> -->
+</select>
+<h4>
+    Fruits: 
+        @for(fruit of fruits;track fruit){
+            <span>{{fruit}}, &nbsp;</span>
+        }
+</h4>
+
+<button class="btn btn-success" (click)="refresh()">Refresh</button>

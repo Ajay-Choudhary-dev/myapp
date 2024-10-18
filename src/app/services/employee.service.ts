@@ -1,32 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
+import { Employee } from '../models/employee';
 
-
-export interface Employee {
-  id: number;
-  name: string;
-  position: string;
-}
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  private employees = [
-    { id: 1, name: 'John Doe', gender: 'male' },
-    { id: 2, name: 'Jane Smith', gender: 'female' },
-    { id: 3, name: 'Alex Johnson', gender: 'male' },
-    { id: 4, name: 'Emily Davis', gender: 'female' }
-  ];
-  employees$: any;
+  url: string = 'http://localhost:3000/employees';
 
-  getAllEmployees() {
-    return this.employees;
-  }
+  constructor(private httpClient: HttpClient) { }
 
-  getMaleEmployees() {
-    return this.employees.filter(employee => employee.gender === 'male');
-  }
+  getAllEmployees(): Observable<Employee[]> {
+    return this.httpClient.get<Employee[]>(this.url, { observe: 'body' }).pipe(
+      map((response: Employee[]) => {
+        return response.map((emp: Employee) => {
+          return new Employee(emp.id, emp.firstName, emp.lastName, emp.sal, emp.email);
+        });
+      })
+    );
 
-  getFemaleEmployees() {
-    return this.employees.filter(employee => employee.gender === 'female');
+    // return this.httpClient.get<Employee[]>(this.url);
   }
 }

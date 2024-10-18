@@ -1,19 +1,50 @@
 <div class="text-center">
-    <div>I am Parent Component</div>
-    <div>My own data a is- {{a}}</div>
-    <div>Name value from the Child1 Component - {{parent_name}}</div>
-    <!-- <select>
+    <div #div1>I am Parent Component</div>
+    <div>
+        My own data a is- {{a}}
+
+        <input type="text" #myInputBox class="m-2" />
+        <input type="text" #myInputBox class="m-2" />
+        <input type="text" #myInputBox class="m-2" />
+        <input type="text" #myInputBox class="m-2" />
+
+        <input type="number" [(ngModel)]="a" />
+    </div>
+    <div>My child data name is- {{parent_name}}</div>
+    <select>
         @for(car of child2.cars;track car){
         <option>{{car}}</option>
         }
-    </select> -->
+    </select>
+
+    <h4>
+        Fruits: 
+        @for(fruit of fruits;track fruit){
+            <span>{{fruit}}, &nbsp;</span>
+        }
+        <button (click)="fruits.push('mango')">Add Fruit</button>
+    </h4>
+
+    <div>
+        count: {{count}} , prevousCount: {{previousCount}}
+
+        <button class="btn btn-primary m-2" (click)="increment()">+</button>
+        <button class="btn btn-danger" (click)="decrement()">-</button>
+        <button class="btn btn-success" (click)="changeUserData('sachin')">change user name</button>
+
+        {{user | json}}
+        <!-- <input [(ngModel)]="user.name" > -->
+        <div *ngFor="let item of changes">
+            {{item}}
+        </div>
+    </div>
 
     <div class="row mt-2">
         <div class="col-sm-6 border p-2">
             <app-child1 [a]="a" #child1 (name_event)="collectChildData($event)"></app-child1>
         </div>
         <div class="col-sm-6 border p-2">
-            <app-child2 [a]="a" [child1]="child1" #child2></app-child2>
+            <app-child2 [fruits]="fruits" [aChild2]="a" [child1]="child1" #child2></app-child2>
         </div>
     </div>
 </div>

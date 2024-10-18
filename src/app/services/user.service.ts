@@ -1,28 +1,18 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:3000/employees';
+  users_api = 'https://jsonplaceholder.typicode.com/users'
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-  // Fetch users
-  getUsers(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getAllUsers() {
+    return this.httpClient.get(this.users_api)
   }
-
-  // Add new user
-  addUser(user: any): Observable<any> {
-    return this.http.post(this.apiUrl, user);
+  getUserById(userId: number) {
+    return this.httpClient.get(`${this.users_api}/${userId}`)
   }
-
-  // Delete user
-  deleteUser(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
-  }
-  
 }

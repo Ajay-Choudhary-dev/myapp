@@ -1,15 +1,14 @@
-<h3 class="text-center">Data Binding Component</h3>
-<hr />
+<h3 class="text-center">Data Binding Component</h3><hr/>
 
 <h4>My Name is:: {{myName}}</h4>
 <h4>My Name is:: <span [innerHTML]="myName"></span></h4>
 <h4>My Name is:: <span bind-innerHTML="myName"></span></h4>
 
-<!-- <img src="https://i.pinimg.com/736x/6b/cf/87/6bcf8787f5d2f4af1ad721ab4a6d2efe.jpg" alt="sachin" width="250"
-height="350" />
+<img src="https://i.pinimg.com/736x/6b/cf/87/6bcf8787f5d2f4af1ad721ab4a6d2efe.jpg" alt="sachin" width="250"
+    height="350" />
 <img src="{{img_url}}" alt="sachin" width="250" height="350" class="mx-2" />
 <img [src]="img_url" alt="sachin" width="250" height="350" />
-<img bind-src="img_url" alt="sachin" width="250" height="350" class="mx-2" /> -->
+<img bind-src="img_url" alt="sachin" width="250" height="350" class="mx-2" />
 <br /><br />
 
 HTML syntax:: <input value="Sachin" class="mx-2" /> <br />
@@ -26,140 +25,3 @@ HTML syntax:: <input value="Sachin" class="mx-2" /> <br />
 <button class="btn btn-primary mx-2" bind-disabled='flag'>Btn-4</button>
 <button class="btn btn-primary mx-2" (click)="f1()">Click Me</button>
 <button class="btn btn-primary mx-2" on-click="f1()">Click Me</button>
-
-<br /><br />
-
-<button (click)=toggleDisplayDiv()>Show/Hide</button>
-<div [hidden]="isShowDiv">Hello World</div>
-
-<br /><br />
-
-<!-- app.component.html -->
-<div class="container">
-  <label for="state">Select a state:</label>
-  <select id="state" [(ngModel)]="selectedState">
-    <option value="" disabled selected>-- Please select a state --</option>
-    <option *For="let state of states" [value]="state">{{ state }}</option>
-  </select>
-  <br />
-  <p>Selected State : {{ selectedState }}</p>
-
-</div>
-<br />
-<br />
-<div class="container">
-  <textarea [(ngModel)]="inputText" maxlength="100" (input)="updateRemainingChars()"></textarea>
-  <p>Remaining characters: {{ remainingChars }}</p>
-</div>
-
-<br />
-<br />
-
-<div class="my-container">
-  <div>
-    <label for="num1">Number 1:</label>
-    <input id="num1" type="number" [(ngModel)]="num1">
-  </div>
-  <div>
-    <label for="num2">Number 2:</label>
-    <input id="num2" type="number" [(ngModel)]="num2">
-  </div>
-  <div>
-    <label for="operation">Operation:</label>
-    <select id="operation" [(ngModel)]="operation">
-      <option value="" disabled selected>-- Please Select any below operation --</option>
-      <option value="+">+</option>
-      <option value="-">-</option>
-      <option value="*">*</option>
-      <option value="/">/</option>
-    </select>
-  </div>
-  <div>
-    <button (click)="calculate()">Calculate</button>
-  </div>
-  <p>Result: {{ result }}</p>
-</div>
-<br />
-
-<div class="password-container">
-  <input [type]="hide ? 'password' : 'text'" placeholder="Enter Password">
-  <button (click)="toggleVisibility()">
-    <i class="fa" [ngClass]="{'fa-eye': hide, 'fa-eye-slash': !hide}"></i>
-  </button>
-</div>
-
-<br />
-<br />
-<div class="counter">
-  <h1>{{ count }}</h1>
-  <button (click)="increment()">Increment</button>
-  <button (click)="decrement()">Decrement</button>
-  <button (click)="reset()">Reset</button>
-</div>
-
-<br/>
-<br/>
-<button (click)="toggleTheme()">
-  {{ isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
-</button>
-
-
-<br/>
-<br/>
-
-<div>
-  <button (click)="toggleView()">
-    Toggle to {{ isTableView ? 'Card' : 'Table' }} View
-  </button>
-</div>
-
-@if (isTableView) {
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>UserName</th>
-          <th>Company Name</th>
-          <th>Address</th>
-          <th>Email</th>
-          <th>Phone No</th>
-          <th>Website</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (user of users | paginate: { itemsPerPage: 4, currentPage: page}; track user) {
-          <tr>
-            <td>{{ user.id }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.company.name}}</td>
-            <td>{{ user.address.suite }},{{ user.address.street }},{{ user.address.city }},{{ user.address.zipcode }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{user.phone}}</td>
-            <td><u>{{user.website}}</u></td>
-          </tr>
-        }
-      </tbody>
-    </table>
-    | <pagination-controls (pageChange)="page = $event"></pagination-controls>
-  </div>
-} @else {
-  <div class="card-container">
-    @for (user of users | paginate: { itemsPerPage: 4, currentPage: page}; track user) {
-      <div class="card">
-        <h3>{{ user.id }} {{ user.name }}</h3>
-        <p>UserName: {{ user.username }}</p>
-        <p>Company Name : {{user.company.name}}</p>
-        <p> <b>Address :</b></p>
-        <p>Suite : {{user.address.suite}} ,{{user.address.street}}, <br/>City : {{user.address.city}},{{user.address.zipcode}} </p>
-        <p>Email: {{ user.email }}</p>
-        <p>Phone No: {{ user.phone }}</p>
-        <p>WebSite: <u>{{ user.website }}</u></p>
-      </div>
-    }
-  </div>
-  <pagination-controls (pageChange)="page = $event"></pagination-controls>
-}
-
