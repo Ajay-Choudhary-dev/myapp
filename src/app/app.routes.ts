@@ -6,7 +6,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { UserResolver } from './user-resolver.resolver';
+import { UserResolver } from './resolvers/user-resolver.resolver';
 
 
 export const routes: Routes = [
