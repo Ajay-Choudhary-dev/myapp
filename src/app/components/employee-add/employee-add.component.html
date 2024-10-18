@@ -2,20 +2,16 @@
 
 <div class="border p-4">
     <p>
-        Emp Id: <input #id />
+        Emp Id: <input #eId />
     </p>
     <p>
         Name: <input #name />
     </p>
     <p>
-        Position: <input #postion />
+        Emp sal: <input #sal />
     </p>
     <p>
-        Department: <input #department />
+        gender: <input #gender />
     </p>
-    <p>
-        Gender: <input #gender />
-    </p>
-    <button class="btn btn-primary"
-        (click)="addEmp(id.value,name.value,postion.value,department.value,gender.value)">Add Emp</button>
+    <button class="btn btn-primary" (click)="addEmp(eId.value,name.value,sal.value,gender.value)">Add Emp</button>
 </div>

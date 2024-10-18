@@ -1,16 +1,13 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient,withInterceptors } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { loggerInterceptor } from './components/interceptor/logger.interceptor';
-import { authInterceptor } from './components/interceptor/auth.interceptor';
-import { loadingInterceptor } from './components/interceptor/loading.interceptor';
-import { errorInterceptor } from './components/interceptor/error.interceptor';
-import { retryInterceptor } from './components/interceptor/retry.interceptor';
-
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { loggerInterceptor } from './interceptors/logger.interceptor';
+import { authInterceptor } from './interceptors/auth.interceptor';
+import { retryInterceptor } from './interceptors/retry.interceptor';
+import { loadingInterceptor } from './interceptors/loading.interceptor';
+import { errorInterceptor } from './interceptors/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,12 +15,11 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(
       withInterceptors([
-        loggerInterceptor,
-        authInterceptor,
-        retryInterceptor,
-        loadingInterceptor,
-        errorInterceptor
+        // loggerInterceptor,
+        // authInterceptor,
+        // retryInterceptor,
+        // loadingInterceptor,
+        // errorInterceptor
       ]))
   ]
 };
-

@@ -6,15 +6,12 @@
             <img class="card-img-top" src="https://attic.sh/ul4khwf22vvfdnk27l1qa7tuv03g"
                 alt="Card image cap" height="200px">
             <div class="card-body">
-                <h5 class="card-title">{{user?.name}}</h5>
-                <p class="card-text">{{user?.address.city}}</p>
-                <p class="card-text">{{user?.phone}}</p>
-                <p class="card-text">{{user?.email}}</p>
-                <p class="card-text">{{ user?.company.name }}</p>
+                <h5 class="card-title">{{user.name}}</h5>
+                <p class="card-text">{{user.address.city}}</p>
+                <p class="card-text">{{user.phone}}</p>
+                <p class="card-text">{{user.email}}</p>
+                <p class="card-text">{{user.id}}</p>
             </div>
         </div>
     </div>
-    <div>
-        <button (click)="goBack()" style="align-items: center;justify-content: center;">Back</button>
-      </div>
 </div>

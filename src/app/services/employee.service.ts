@@ -1,48 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-
-export interface Employee {
-  id: number;
-  name: string;
-  position: string;
-}
+import { map, Observable } from 'rxjs';
+import { Employee } from '../models/employee';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  private employeesSubject = new BehaviorSubject<Employee[]>([
-    { id: 1, name: 'Alice', position: 'Developer' },
-    { id: 2, name: 'Bob', position: 'Designer' },
-    { id: 3, name: 'Charlie', position: 'Manager' }
-  ]);
-  employees$ = this.employeesSubject.asObservable();
+  url: string = 'http://localhost:3000/employees';
 
-  // Create
-  addEmployee(employee: Employee) {
-    const currentEmployees = this.employeesSubject.value;
-    this.employeesSubject.next([...currentEmployees, employee]);
-  }
+  constructor(private httpClient: HttpClient) { }
 
-  // Read
-  getEmployees() {
-    return this.employees$;
-  }
+  getAllEmployees(): Observable<Employee[]> {
+    return this.httpClient.get<Employee[]>(this.url, { observe: 'body' }).pipe(
+      map((response: Employee[]) => {
+        return response.map((emp: Employee) => {
+          return new Employee(emp.id, emp.firstName, emp.lastName, emp.sal, emp.email);
+        });
+      })
+    );
 
-  // Update
-  updateEmployee(id: number, updatedEmployee: Employee) {
-    const currentEmployees = this.employeesSubject.value;
-    const employeeIndex = currentEmployees.findIndex(emp => emp.id === id);
-    if (employeeIndex !== -1) {
-      currentEmployees[employeeIndex] = updatedEmployee;
-      this.employeesSubject.next(currentEmployees);
-    }
-  }
-
-  // Delete
-  deleteEmployee(id: number) {
-    const currentEmployees = this.employeesSubject.value;
-    const updatedEmployees = currentEmployees.filter(emp => emp.id !== id);
-    this.employeesSubject.next(updatedEmployees);
+    // return this.httpClient.get<Employee[]>(this.url);
   }
 }
