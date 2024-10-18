@@ -18,16 +18,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'aboutus', component: AboutusComponent, canDeactivate: [haschangesGuard] },
-    {
-        path: 'careers',
-        component: CareersComponent,
-        children: [
-            { path: '', redirectTo: 'permanent', pathMatch: 'full' },
-            { path: 'permanent', component: PermanentJobsComponent },
-            { path: 'contract', component: ContractJobsComponent }
-        ]
-    },
+    { path: 'aboutus', component: AboutusComponent },
     { path: 'users', component: UserListComponent },
     {
         path: 'userdetails/:id',

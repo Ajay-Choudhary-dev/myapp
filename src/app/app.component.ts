@@ -23,5 +23,5 @@ import { BodyComponent } from './components/body/body.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'myapp';
+  title = 'angular_project_august_2024';
 }

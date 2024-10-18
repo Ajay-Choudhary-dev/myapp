@@ -14,14 +14,4 @@ export class AboutusComponent {
   constructor(private router: Router, private location: Location) {
 
   }
-  goToHomeComp() {
-    console.log('Do Something......');
-    this.router.navigate(['/home']);
-  }
-  previous() {
-    this.location.back();
-  }
-  next() {
-    this.location.forward();
-  }
 }
