@@ -28,6 +28,8 @@ import { FormDemo2Component } from '../form-demo2/form-demo2.component';
 import { FormDemo3Component } from '../form-demo3/form-demo3.component';
 import { FormDemo4Component } from '../form-demo4/form-demo4.component';
 import { RouterOutlet } from '@angular/router';
+import { TrafficLightComponent } from '../traffic-light/traffic-light.component';
+
 
 @Component({
   selector: 'app-body',
@@ -61,8 +63,9 @@ import { RouterOutlet } from '@angular/router';
     FormDemo1Component,
     FormDemo2Component,
     FormDemo3Component,
-    FormDemo4Component
-  ],
+    FormDemo4Component,
+    TrafficLightComponent
+],
   templateUrl: './body.component.html',
   styleUrl: './body.component.css'
 })
