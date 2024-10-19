@@ -27,28 +27,3 @@
         }
     </tbody>
 </table>
-
-<div class="container">
-    <div class="row">
-        @for(user of users | paginate: { itemsPerPage: 3, currentPage: p};track user.id){
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <img class="card-img-top" src="https://attic.sh/ul4khwf22vvfdnk27l1qa7tuv03g"
-                    alt="Card image cap" height="200">
-                <div class="card-body">
-                    <h5 class="card-title">{{user.name}}</h5>
-                    <p class="card-text">{{user.address.city}}</p>
-                    <p class="card-text">{{user.phone}}</p>
-                    <p class="card-text">{{user.email}}</p>
-                    <p class="card-text">{{user.id}}</p>
-                </div>
-            </div>
-        </div>
-        }
-    </div>
-    <div class="row">
-        <div class="col-sm-4 offset-4">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </div>
-    </div>
-</div>
