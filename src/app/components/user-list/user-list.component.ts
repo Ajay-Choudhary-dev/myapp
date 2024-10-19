@@ -22,4 +22,5 @@ export class UserListComponent {
   faUser = faUser;
   faEye = faEye;
   p:any;
+  page: number = 1;
 }
